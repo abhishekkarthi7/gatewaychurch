@@ -48,20 +48,35 @@ const Home = () => {
           <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem' }}>There's a place for everyone to grow and serve.</p>
         </div>
         <div className="grid">
-          <Link to="/ministries/kids" className="card" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-            <span className="card-icon">🌱</span>
-            <h3 className="card-title">Kids Ministry</h3>
-            <p style={{ color: 'var(--text-muted)' }}>A safe, fun environment where children learn biblical truths through interactive lessons and worship.</p>
+          <Link to="/ministries/kids" className="image-card">
+            <img src="https://images.unsplash.com/photo-1540479859555-171a500d7151?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kids Ministry" className="bg-img" />
+            <div className="image-card-content">
+              <h3 className="image-card-title">Kids Ministry</h3>
+              <p className="image-card-text">A safe, fun environment where children learn biblical truths through interactive lessons and worship.</p>
+              <div className="image-card-arrow">
+                Learn More <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </div>
+            </div>
           </Link>
-          <Link to="/ministries/youth" className="card" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-            <span className="card-icon">🔥</span>
-            <h3 className="card-title">Gateway Youth</h3>
-            <p style={{ color: 'var(--text-muted)' }}>Empowering teenagers to build a strong foundation of faith and discover their God-given identity.</p>
+          <Link to="/ministries/youth" className="image-card">
+            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gateway Youth" className="bg-img" />
+            <div className="image-card-content">
+              <h3 className="image-card-title">Gateway Youth</h3>
+              <p className="image-card-text">Empowering teenagers to build a strong foundation of faith and discover their God-given identity.</p>
+              <div className="image-card-arrow">
+                Learn More <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </div>
+            </div>
           </Link>
-          <Link to="/ministries/missions" className="card" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-            <span className="card-icon">🌍</span>
-            <h3 className="card-title">Global Missions</h3>
-            <p style={{ color: 'var(--text-muted)' }}>Taking the gospel beyond our walls by supporting global missionaries and local outreach programs.</p>
+          <Link to="/ministries/missions" className="image-card">
+            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Global Missions" className="bg-img" />
+            <div className="image-card-content">
+              <h3 className="image-card-title">Global Missions</h3>
+              <p className="image-card-text">Taking the gospel beyond our walls by supporting global missionaries and local outreach programs.</p>
+              <div className="image-card-arrow">
+                Learn More <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </div>
+            </div>
           </Link>
         </div>
       </section>

@@ -15,7 +15,8 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <NavLink to="/" className="logo" onClick={closeMenu}>
-        Gateway<span> Church</span>
+        <img src="/logo.jpg" alt="Gateway Church" className="logo-img" />
+        <span className="logo-text">Gateway<span> Church</span></span>
       </NavLink>
       
       <div className="menu-icon" onClick={toggleMenu}>

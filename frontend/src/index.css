@@ -164,11 +164,28 @@ h3 {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-family: var(--heading-font);
   font-size: 1.8rem;
   font-weight: 800;
   letter-spacing: -0.5px;
   color: #0f172a;
+}
+
+.logo-img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary-color);
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-text span {
+  color: var(--primary-color);
 }
 
 .nav-links {
@@ -368,6 +385,111 @@ h3 {
 }
 
 /* =========================================
+   Image Cards (Inspired by se.church)
+   ========================================= */
+.image-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem 2rem;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background-color: var(--text-main);
+  border: none;
+}
+
+.image-card img.bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.image-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
+  z-index: 1;
+}
+
+.image-card-content {
+  position: relative;
+  z-index: 2;
+  transform: translateY(30px);
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.image-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+.image-card:hover img.bg-img {
+  transform: scale(1.08);
+}
+
+.image-card:hover .image-card-content {
+  transform: translateY(0);
+}
+
+.image-card-title {
+  font-family: var(--heading-font);
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.8rem;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.image-card-text {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  line-height: 1.5;
+  transition: opacity 0.4s ease 0.1s;
+}
+
+.image-card:hover .image-card-text {
+  opacity: 1;
+}
+
+.image-card-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.image-card-arrow svg {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.3s ease;
+}
+
+.image-card:hover .image-card-arrow svg {
+  transform: translateX(8px);
+}
+
+/* =========================================
    Forms
    ========================================= */
 .form-group {
@@ -542,6 +664,8 @@ h3 {
 @media screen and (max-width: 480px) {
   h1 { font-size: 2rem; }
   .navbar { padding: 1rem; }
+  .logo { font-size: 1.4rem; gap: 8px; }
+  .logo-img { width: 38px; height: 38px; }
   .nav-links { gap: 0.8rem; }
   .nav-link { font-size: 0.95rem; }
   .grid { grid-template-columns: 1fr; }
