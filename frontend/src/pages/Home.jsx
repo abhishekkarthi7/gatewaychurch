@@ -19,28 +19,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Welcome Message */}
-      <section className="section">
-        <div className="card" style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto', background: 'linear-gradient(to right, #f089e1ff, #b4c8f0ff)' }}>
-          <h2>A Place to Belong</h2>
-          <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', marginBottom: '2rem' }}>
-            "For where two or three gather in my name, there am I with them." - Matthew 18:20
-            <br /><br />
-            At Gateway Church, everyone has a unique purpose and a place in God's family. Come experience the transformational power of Jesus Christ!
-          </p>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', flexWrap: 'wrap' }}>
-            <div>
-              <h3 className="text-gradient">7:30 AM</h3>
-              <p style={{ color: 'var(--text-muted)' }}>Sunday Service</p>
-            </div>
-            <div>
-              <h3 className="text-gradient">11:00 AM</h3>
-              <p style={{ color: 'var(--text-muted)' }}>Sunday School</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Ministries */}
       <section className="section">
         <div className="section-header">
@@ -81,11 +59,42 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="footer">
-        <h2>Gateway <span className="text-gradient">Church</span></h2>
-        <p style={{ margin: '1rem 0' }}>Gummuluru - korukonda , Andhra pradesh </p>
-        <p style={{ fontSize: '0.9rem', opacity: 0.7 }}>&copy; {new Date().getFullYear()} Gateway Church Gummuluru  .  All rights reserved.</p>
+      {/* Premium Footer */}
+      <footer className="footer-premium">
+        <div className="footer-top">
+          <div className="footer-logo">
+            <h2 style={{ color: 'white', marginBottom: '0.5rem', fontFamily: 'var(--heading-font)' }}>GATEWAY<br/>CHRISTIAN CHURCH</h2>
+            <p style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.95rem', marginTop: '1rem' }}>Gummuluru - Korukonda, AP</p>
+          </div>
+          <div className="footer-links">
+            <div className="footer-column">
+              <h4>Locations</h4>
+              <Link to="/about">Service Times</Link>
+              <Link to="/about">What to Expect</Link>
+            </div>
+            <div className="footer-column">
+              <h4>Watch</h4>
+              <Link to="/">Watch Live</Link>
+              <Link to="/events">Sermon Library</Link>
+            </div>
+            <div className="footer-column">
+              <h4>Find Your Place</h4>
+              <Link to="/events">Events</Link>
+              <Link to="/ministries/youth">Groups</Link>
+              <Link to="/offerings">Give</Link>
+            </div>
+          </div>
+        </div>
+        <div className="footer-contact-banner">
+          <div>
+            <h3 style={{ color: 'white', fontSize: '1.5rem', marginBottom: '0.5rem', fontWeight: '700' }}>Get in touch.</h3>
+            <p style={{ color: 'rgba(255, 255, 255, 0.7)' }}>We'd love to hear from you.</p>
+          </div>
+          <div className="footer-contact-buttons">
+            <a href="tel:+919966178555" className="btn-outline">Call Us: +91 9966178555</a>
+            <Link to="/about" className="btn-outline">Contact Us</Link>
+          </div>
+        </div>
       </footer>
     </div>
   );
