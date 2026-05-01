@@ -49,7 +49,7 @@ const Home = () => {
         </div>
         <div className="grid">
           <Link to="/ministries/kids" className="image-card">
-            <img src="https://images.unsplash.com/photo-1540479859555-171a500d7151?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kids Ministry" className="bg-img" />
+            <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kids Ministry" className="bg-img" />
             <div className="image-card-content">
               <h3 className="image-card-title">Kids Ministry</h3>
               <p className="image-card-text">A safe, fun environment where children learn biblical truths through interactive lessons and worship.</p>

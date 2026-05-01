@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Nunito:wght@400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
   --primary-color: #4f46e5; /* Indigo */
@@ -25,8 +25,8 @@
   --glass-border: rgba(255, 255, 255, 0.8);
   --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
   
-  --heading-font: 'Nunito', sans-serif;
-  --body-font: 'Montserrat', sans-serif;
+  --heading-font: 'Playfair Display', serif;
+  --body-font: 'Plus Jakarta Sans', sans-serif;
 }
 
 * {
@@ -489,6 +489,12 @@ h3 {
   transform: translateX(8px);
 }
 
+.image-card:active {
+  transform: scale(0.96);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transition: all 0.1s ease;
+}
+
 /* =========================================
    Forms
    ========================================= */
@@ -612,10 +618,16 @@ h3 {
     border-radius: 0 0 16px 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     clip-path: circle(0px at top right);
-    transition: all 0.5s ease-out;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     visibility: hidden;
     opacity: 0;
     margin-top: 0.5rem;
+  }
+
+  .nav-links li {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
   }
 
   .nav-links.active {
@@ -623,6 +635,16 @@ h3 {
     visibility: visible;
     opacity: 1;
   }
+  
+  .nav-links.active li {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .nav-links.active li:nth-child(1) { transition-delay: 0.2s; }
+  .nav-links.active li:nth-child(2) { transition-delay: 0.3s; }
+  .nav-links.active li:nth-child(3) { transition-delay: 0.4s; }
+  .nav-links.active li:nth-child(4) { transition-delay: 0.5s; }
   
   .hero {
     padding: 5rem 1.5rem 4rem;

@@ -17,9 +17,9 @@ const Events = () => {
       } catch (err) {
         console.log("Using mock events, backend might not be running.");
         setEvents([
-          { id: 1, title: 'Sunday Worship Service', description: 'Join us for our weekly worship and message.', date: new Date().toISOString(), location: 'Main Sanctuary' },
-          { id: 2, title: 'Bible Study', description: 'Deep dive into the Book of Romans.', date: new Date(Date.now() + 86400000).toISOString(), location: 'Room 101' },
-          { id: 3, title: 'Community Picnic', description: 'Food, games, and fellowship for the whole family.', date: new Date(Date.now() + 86400000 * 5).toISOString(), location: 'City Park' }
+          { id: 1, title: 'Sunday Worship Service', description: 'Join us for our weekly worship and message.', date: new Date().toISOString(), location: 'Main Sanctuary', image: 'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=800&auto=format&fit=crop' },
+          { id: 2, title: 'Bible Study', description: 'Deep dive into the Book of Romans.', date: new Date(Date.now() + 86400000).toISOString(), location: 'Room 101', image: 'https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?q=80&w=800&auto=format&fit=crop' },
+          { id: 3, title: 'Community Picnic', description: 'Food, games, and fellowship for the whole family.', date: new Date(Date.now() + 86400000 * 5).toISOString(), location: 'City Park', image: 'https://images.unsplash.com/photo-1523301551780-8b54b600f913?q=80&w=800&auto=format&fit=crop' }
         ]);
       } finally {
         setLoading(false);
@@ -40,13 +40,16 @@ const Events = () => {
 
       <div className="grid">
         {events.map(event => (
-          <div key={event.id} className="card">
-            <h3 className="card-title">{event.title}</h3>
-            <div className="card-meta">
-              <span>📅 {new Date(event.date).toLocaleDateString()}</span>
-              <span style={{ marginLeft: '1rem' }}>📍 {event.location}</span>
+          <div key={event.id} className="image-card" style={{ minHeight: '300px' }}>
+            <img src={event.image || 'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=800&auto=format&fit=crop'} alt={event.title} className="bg-img" />
+            <div className="image-card-content">
+              <h3 className="image-card-title" style={{ fontSize: '1.6rem', marginBottom: '0.5rem' }}>{event.title}</h3>
+              <div style={{ color: 'rgba(255,255,255,0.9)', marginBottom: '1rem', fontSize: '0.95rem', fontWeight: '600' }}>
+                <span>📅 {new Date(event.date).toLocaleDateString()}</span>
+                <span style={{ marginLeft: '1rem' }}>📍 {event.location}</span>
+              </div>
+              <p className="image-card-text">{event.description}</p>
             </div>
-            <p>{event.description}</p>
           </div>
         ))}
       </div>
