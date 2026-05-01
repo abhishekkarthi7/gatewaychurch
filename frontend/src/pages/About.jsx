@@ -75,7 +75,7 @@ const About = () => {
 
       {/* Prayer Request Section */}
       <a
-        href="https://wa.me/916305217678"
+        href="https://wa.me/919440328071"
         target="_blank"
         rel="noopener noreferrer"
         style={{ textDecoration: 'none', display: 'block', marginTop: '3rem' }}
