@@ -3,7 +3,7 @@ import React from 'react';
 const About = () => {
   return (
     <div className="animate-fade-in" style={{ paddingBottom: '4rem' }}>
-      <section className="hero" style={{ padding: '4rem 0' }}>
+      <section className="hero" style={{ padding: '4rem 1.5rem' }}>
         <h1>Our <span className="text-gradient">Story</span></h1>
         <p>Discover who we are, what we believe, and how God is moving at Gateway Church.</p>
       </section>
@@ -14,7 +14,7 @@ const About = () => {
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', alignItems: 'center' }}>
 
-          <div style={{ flex: '1 1 300px', display: 'flex', justifyContent: 'center' }}>
+          <div style={{ flex: '1 1 100%', minWidth: '280px', display: 'flex', justifyContent: 'center' }}>
             {/* USER INSTRUCTION: INSERT PASTOR & WIFE IMAGE HERE */}
             {/* Replace the src below with your actual image path */}
             <div style={{ width: '100%', maxWidth: '350px', height: '300px', background: '#ddd', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', color: '#666', textAlign: 'center' }}>
@@ -22,7 +22,7 @@ const About = () => {
             </div>
           </div>
 
-          <div style={{ flex: '2 1 400px' }}>
+          <div style={{ flex: '1 1 100%', minWidth: '280px' }}>
             {/* USER INSTRUCTION: INSERT PASTOR & WIFE DETAILS HERE */}
             <h3 style={{ fontSize: '1.8rem', marginBottom: '0.5rem' }}>Rev V.S.C Prasad & Sunitha</h3>
             <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
