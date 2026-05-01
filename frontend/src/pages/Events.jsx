@@ -45,7 +45,7 @@ const Events = () => {
             <div className="image-card-content">
               <h3 className="image-card-title" style={{ fontSize: '1.6rem', marginBottom: '0.5rem' }}>{event.title}</h3>
               <div style={{ color: 'rgba(255,255,255,0.9)', marginBottom: '1rem', fontSize: '0.95rem', fontWeight: '600' }}>
-                <span>📅 {event.date === 'Every Sunday' ? event.date : new Date(event.date).toLocaleDateString()}</span>
+                <span>📅 {event.date.startsWith('Every') ? event.date : new Date(event.date).toLocaleDateString()}</span>
                 <span style={{ marginLeft: '1rem' }}>📍 {event.location}</span>
               </div>
               <p className="image-card-text">{event.description}</p>
