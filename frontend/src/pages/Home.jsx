@@ -74,7 +74,7 @@ const Home = () => {
             </div>
             <div className="footer-column">
               <h4>Watch</h4>
-              <Link to="/">Watch Live</Link>
+              <a href="https://youtube.com/@gatewaychurch7829?si=kXod6rqJG6LZZS9_" target="_blank" rel="noopener noreferrer">Watch Live</a>
               <Link to="/events">Sermon Library</Link>
             </div>
             <div className="footer-column">
