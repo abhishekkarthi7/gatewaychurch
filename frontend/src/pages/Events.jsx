@@ -1,33 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+
+const STATIC_EVENTS = [
+  { id: 1, title: 'Sunday Worship Service', description: 'Join us for our weekly worship and message.', date: 'Every Sunday', location: 'Gummuluru', image: 'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=800&auto=format&fit=crop' },
+  { id: 2, title: 'Bible Study', description: 'Deep dive into the Book of Romans.', date: 'Every Friday', location: 'Gummuluru', image: 'https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?q=80&w=800&auto=format&fit=crop' },
+  { id: 3, title: 'Community Picnic', description: 'Food, games, and fellowship for the whole family.', date: new Date(Date.now() + 86400000 * 5).toISOString(), location: 'City Park', image: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' }
+];
 
 const Events = () => {
-  const [events, setEvents] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // In a real app, you would fetch from your FastAPI backend:
-    // axios.get('http://localhost:8000/events/').then(res => setEvents(res.data))
-
-    // For demonstration, using mock data if API is not running
-    const fetchEvents = async () => {
-      try {
-        const res = await axios.get('http://localhost:8000/events/');
-        setEvents(res.data);
-      } catch (err) {
-        console.log("Using mock events, backend might not be running.");
-        setEvents([
-          { id: 1, title: 'Sunday Worship Service', description: 'Join us for our weekly worship and message.', date: 'Every Sunday', location: 'Gummuluru', image: 'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=800&auto=format&fit=crop' },
-          { id: 2, title: 'Bible Study', description: 'Deep dive into the Book of Romans.', date: 'Every Friday', location: 'Gummuluru', image: 'https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?q=80&w=800&auto=format&fit=crop' },
-          { id: 3, title: 'Community Picnic', description: 'Food, games, and fellowship for the whole family.', date: new Date(Date.now() + 86400000 * 5).toISOString(), location: 'City Park', image: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' }
-        ]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchEvents();
-  }, []);
+  const [events] = useState(STATIC_EVENTS);
+  const [loading] = useState(false);
 
   if (loading) return <div>Loading events...</div>;
 

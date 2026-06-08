@@ -6,6 +6,7 @@ import Events from './pages/Events';
 import Offerings from './pages/Offerings';
 import About from './pages/About';
 import MinistryDetails from './pages/MinistryDetails';
+import PaymentSuccess from './pages/PaymentSuccess';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/offerings" element={<Offerings />} />
           <Route path="/about" element={<About />} />
           <Route path="/ministries/:id" element={<MinistryDetails />} />
+          <Route path="/payment-success" element={<PaymentSuccess />} />
         </Routes>
       </div>
     </Router>

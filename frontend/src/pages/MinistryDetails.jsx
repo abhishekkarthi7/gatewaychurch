@@ -10,19 +10,19 @@ const MinistryDetails = () => {
       title: 'Kids Ministry',
       description: 'We provide a safe, high-energy environment where children learn biblical truths through interactive lessons, worship, and fun activities tailored just for them.',
       icon: '🌱',
-      color: '#f089e1ff'
+      color: '#51f0a5ff'
     },
     youth: {
       title: 'Gateway Youth',
       description: 'A dynamic ministry dedicated to empowering teenagers to build a strong foundation of faith, navigate life\'s challenges, and discover their God-given identity.',
       icon: '🔥',
-      color: '#b4c8f0ff'
+      color: '#f27dbfff'
     },
     missions: {
       title: 'Global Missions',
       description: 'Taking the gospel beyond our walls. We actively support missionaries globally and organize local outreach programs to serve the marginalized in our city.',
       icon: '🌍',
-      color: '#90e0ef'
+      color: '#f3a381ff'
     }
   };
 
