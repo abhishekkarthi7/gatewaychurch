@@ -38,8 +38,7 @@ const MinistryDetails = () => {
   }
 
   return (
-    <div className="animate-fade-in">
-      <section className="section">
+    <div className="container sbr-page-container animate-fade-in">
         <div className="section-header" style={{ marginBottom: '2rem' }}>
           <span className="card-icon" style={{ fontSize: '4rem', marginBottom: '1rem', display: 'inline-block' }}>{ministry.icon}</span>
           <h1>{ministry.title}</h1>
@@ -96,7 +95,6 @@ const MinistryDetails = () => {
         <div style={{ textAlign: 'center', marginTop: '3rem' }}>
           <Link to="/" className="btn btn-secondary">Back to Home</Link>
         </div>
-      </section>
     </div>
   );
 };

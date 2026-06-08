@@ -1,21 +1,79 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+
+  const slideshowImages = [
+    '/SnapsByRajsh-10.jpg', // SBR photograph
+    'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=800&auto=format&fit=crop', // Worship
+    'https://images.unsplash.com/photo-1510590337019-5ef8d3d32116?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Prayer
+    'https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'  // Fellowship
+  ];
+
+  const backgroundVideos = ['/WORSHIP.mp4', '/PRAYER.mp4'];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % slideshowImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const handleVideoEnded = () => {
+    setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % backgroundVideos.length);
+  };
+
   return (
     <div className="animate-fade-in">
-      {/* Hero Section */}
-      <section className="hero">
-        <h1 className="animate-fade-in">
-          Experience God's Love at <br />
-          <span className="text-gradient">Gateway Church Gummuluru</span>
-        </h1>
-        <p className="animate-fade-in delay-1">
-          A vibrant community dedicated to worship, fellowship, and making a profound impact. Come exactly as you are, you are welcome here!
-        </p>
-        <div className="animate-fade-in delay-2">
-          <Link to="/events" className="btn">Plan Your Visit</Link>
-          <Link to="/about" className="btn btn-secondary">Our Beliefs</Link>
+      {/* SBR Video Hero Section */}
+      <section className="sbr-hero">
+        {/* Alternating Background Video */}
+        <div className="sbr-video-container">
+          <video 
+            key={currentVideoIndex}
+            autoPlay 
+            muted 
+            playsInline 
+            className="sbr-video-bg"
+            onEnded={handleVideoEnded}
+          >
+            <source src={backgroundVideos[currentVideoIndex]} type="video/mp4" />
+          </video>
+          <div className="sbr-video-overlay"></div>
+        </div>
+
+        {/* Hero Content Layout */}
+        <div className="sbr-hero-content">
+          {/* Left Column: Text & Info */}
+          <div className="sbr-hero-left">
+            <h1 className="sbr-hero-title animate-fade-in">
+              GATEWAY CHURCH
+            </h1>
+            <h2 className="sbr-hero-subtitle animate-fade-in delay-1">
+              Worship • Fellowship • Community
+            </h2>
+            <p className="sbr-hero-description animate-fade-in delay-1">
+              Gateway Church Gummuluru is a place where faith comes alive and hearts connect. We are a family of believers devoted to worshiping God, cultivating authentic fellowship, and extending His grace to our community. No matter where you are on your spiritual journey, there is a place for you here. Join us as we grow, pray, and serve together.
+            </p>
+            <div className="sbr-hero-buttons animate-fade-in delay-2">
+              <Link to="/offerings" className="sbr-btn-gold">Online Giving</Link>
+              <Link to="/events" className="sbr-btn-outline">Upcoming Events</Link>
+            </div>
+          </div>
+
+          {/* Right Column: Slideshow Card */}
+          <div className="sbr-hero-right animate-fade-in delay-2">
+            <div className="sbr-slideshow-card">
+              <img 
+                src={slideshowImages[currentImageIndex]} 
+                alt="Gateway Church Memories" 
+                className="sbr-slideshow-img" 
+              />
+              <div className="sbr-slideshow-badge">GATEWAY MEMORIES</div>
+            </div>
+          </div>
         </div>
       </section>
 

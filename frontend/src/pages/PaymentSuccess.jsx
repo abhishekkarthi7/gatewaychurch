@@ -30,7 +30,7 @@ const PaymentSuccess = () => {
 
   if (!paymentDetails) {
     return (
-      <div className="section animate-fade-in" style={{ textAlign: 'center', minHeight: '60vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+      <div className="container sbr-page-container animate-fade-in" style={{ textAlign: 'center', minHeight: '60vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <h2>Access Denied</h2>
         <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>No payment receipt found. If you just made a payment, please check your WhatsApp.</p>
         <div>
@@ -43,7 +43,7 @@ const PaymentSuccess = () => {
   const { paymentId, donorName, phoneNumber, amount, purpose, date } = paymentDetails;
 
   return (
-    <div className="section animate-fade-in">
+    <div className="container sbr-page-container animate-fade-in">
       <div style={{ maxWidth: '600px', margin: '0 auto' }}>
         <div className="card" style={{ textAlign: 'center', position: 'relative', overflow: 'visible' }}>
           

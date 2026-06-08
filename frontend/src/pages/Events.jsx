@@ -13,7 +13,7 @@ const Events = () => {
   if (loading) return <div>Loading events...</div>;
 
   return (
-    <div className="section animate-fade-in">
+    <div className="container sbr-page-container animate-fade-in">
       <div className="section-header">
         <h2>Upcoming Events</h2>
         <p style={{ color: 'var(--text-muted)' }}>Join us for our upcoming gatherings</p>

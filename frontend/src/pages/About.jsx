@@ -2,7 +2,7 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div className="animate-fade-in" style={{ paddingBottom: '4rem' }}>
+    <div className="container sbr-page-container animate-fade-in" style={{ paddingBottom: '4rem' }}>
       <section className="hero" style={{ padding: '4rem 1.5rem' }}>
         <h1>Our <span className="text-gradient">Story</span></h1>
         <p>Discover who we are, what we believe, and how God is moving at Gateway Church.</p>

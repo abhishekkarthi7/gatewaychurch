@@ -6,149 +6,117 @@ const Offerings = () => {
   const [formData, setFormData] = useState({
     phone_number: '',
     donor_name: '',
-    amount: '',
+    email: '',
+    amount: '299',
     purpose: 'Tithes / General'
   });
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setError(null);
-    setLoading(true);
 
-    if (!window.Razorpay) {
-      setError("Payment system failed to load. Please check your internet connection.");
-      setLoading(false);
+    // Validation
+    if (!formData.donor_name || !formData.phone_number || !formData.amount) {
+      setError("Please fill out all required fields.");
       return;
     }
 
-    // Razorpay standard checkout configuration
-    // Note: The user should replace the key below with their live or test Key ID from the Razorpay Dashboard.
-    const options = {
-      key: "rzp_test_5q1Lz7vWwX9zK6", // Placeholder Test Key ID
-      amount: parseFloat(formData.amount) * 100, // Amount in paise (1 INR = 100 paise)
-      currency: "INR",
-      name: "Gateway Church",
-      description: `Offerings - ${formData.purpose}`,
-      image: "/LOGO.jpeg",
-      prefill: {
-        name: formData.donor_name,
-        contact: formData.phone_number
-      },
-      handler: function (response) {
-        setLoading(false);
-        // Successful payment redirect to success page
-        navigate('/payment-success', {
-          state: {
-            paymentId: response.razorpay_payment_id,
-            donorName: formData.donor_name,
-            phoneNumber: formData.phone_number,
-            amount: formData.amount,
-            purpose: formData.purpose,
-            date: new Date().toLocaleString()
-          }
-        });
-      },
-      modal: {
-        ondismiss: function () {
-          setLoading(false);
-        }
-      },
-      theme: {
-        color: "#7c3aed" // Matches the new purple theme accent
-      }
-    };
+    const cleanPhone = formData.phone_number.replace(/\s+/g, '').replace(/[^\d+]/g, '');
 
-    try {
-      const rzp = new window.Razorpay(options);
-      rzp.open();
-    } catch (err) {
-      console.error("Razorpay initiation error:", err);
-      setError("Could not initiate payment. Please verify your details.");
-      setLoading(false);
-    }
+    // Forward form data to Step 2 (/checkout)
+    navigate('/checkout', {
+      state: {
+        donorName: formData.donor_name,
+        email: formData.email,
+        phoneNumber: cleanPhone,
+        amount: formData.amount,
+        purpose: formData.purpose
+      }
+    });
   };
 
   return (
-    <div className="section animate-fade-in">
-      <div className="section-header">
-        <h2>For Online Offerings</h2>
+    <div className="container sbr-page-container animate-fade-in">
+      <div className="section-header" style={{ marginBottom: '3rem' }}>
+        <h2 style={{ fontSize: '3rem', color: '#ffffff' }}>For Online Offerings</h2>
         <p style={{ color: 'var(--text-muted)' }}>Support the ministries of Gateway Church Gummuluru</p>
       </div>
 
-      <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-        
-        {/* Info card describing the checkout process */}
-        <div className="card" style={{ marginBottom: '2rem', textAlign: 'center', background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(59, 130, 246, 0.1))' }}>
-          <span style={{ fontSize: '2.5rem', marginBottom: '0.5rem', display: 'inline-block' }}>💳</span>
-          <h3 style={{ margin: '0.5rem 0' }}>Secure Digital Giving</h3>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.6' }}>
-            Enter your details and giving amount below. Once you click <strong>Give Securely</strong>, the Razorpay window will open where you can pay using any UPI App (GPay, PhonePe, Paytm, etc.) via QR Code scanning, Cards, or Netbanking.
-          </p>
-        </div>
+      <div style={{ maxWidth: '550px', margin: '0 auto' }}>
+        <div className="payment-card-white">
+          <h3 className="payment-card-title">Payment Details</h3>
+          <div className="payment-title-underline"></div>
 
-        <div className="card">
-          <h3 style={{ marginBottom: '1.5rem', textAlign: 'center' }}>Record Your Giving .. ❤️</h3>
-          
           {error && (
-            <div style={{ marginBottom: '1.5rem', padding: '1rem', backgroundColor: '#fef2f2', color: '#991b1b', borderRadius: '12px', fontSize: '0.95rem', fontWeight: '500', textAlign: 'center' }}>
+            <div style={{ marginBottom: '1.5rem', padding: '0.8rem', backgroundColor: '#fef2f2', color: '#b91c1c', borderRadius: '6px', fontSize: '0.9rem', fontWeight: '500' }}>
               ⚠️ {error}
             </div>
           )}
 
           <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label className="form-label">Full Name (Required)</label>
-              <input
-                type="text"
-                className="form-control"
-                value={formData.donor_name}
-                onChange={(e) => setFormData({ ...formData, donor_name: e.target.value })}
-                placeholder="Enter your name"
-                required
-                disabled={loading}
-              />
-            </div>
-
-            <div className="form-group">
-              <label className="form-label">Phone Number (Required)</label>
-              <input
-                type="tel"
-                className="form-control"
-                value={formData.phone_number}
-                onChange={(e) => setFormData({ ...formData, phone_number: e.target.value })}
-                placeholder="e.g. +91 9876543210"
-                required
-                disabled={loading}
-              />
-            </div>
-
-            <div className="form-group">
-              <label className="form-label">Amount (₹)</label>
-              <div style={{ position: 'relative' }}>
-                <span style={{ position: 'absolute', left: '15px', top: '50%', transform: 'translateY(-50%)', fontWeight: 'bold', color: 'var(--text-muted)' }}>₹</span>
+            <div className="payment-form-group">
+              <label className="payment-form-label">Amount <span>*</span></label>
+              <div className="payment-input-wrapper">
+                <span className="payment-input-prefix">₹</span>
                 <input
                   type="number"
-                  className="form-control"
-                  style={{ paddingLeft: '35px' }}
+                  className="payment-control-white"
+                  style={{ paddingLeft: '30px' }}
                   value={formData.amount}
                   onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
-                  placeholder="0.00"
                   required
                   min="1"
-                  disabled={loading}
                 />
               </div>
             </div>
 
-            <div className="form-group">
-              <label className="form-label">Purpose of Giving</label>
+            <div className="payment-form-group">
+              <label className="payment-form-label">Name <span>*</span></label>
+              <input
+                type="text"
+                className="payment-control-white"
+                value={formData.donor_name}
+                onChange={(e) => setFormData({ ...formData, donor_name: e.target.value })}
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+
+            <div className="payment-form-group">
+              <label className="payment-form-label">Email</label>
+              <input
+                type="email"
+                className="payment-control-white"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                placeholder="Enter your email (optional)"
+              />
+            </div>
+
+            <div className="payment-form-group">
+              <label className="payment-form-label">Phone <span>*</span></label>
+              <div className="payment-input-wrapper">
+                <select className="payment-control-white payment-phone-select" disabled>
+                  <option>IN +91</option>
+                </select>
+                <input
+                  type="tel"
+                  className="payment-control-white payment-phone-input"
+                  value={formData.phone_number}
+                  onChange={(e) => setFormData({ ...formData, phone_number: e.target.value })}
+                  placeholder="9966178778"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="payment-form-group">
+              <label className="payment-form-label">Purpose of Giving</label>
               <select
-                className="form-control"
+                className="payment-control-white"
                 value={formData.purpose}
                 onChange={(e) => setFormData({ ...formData, purpose: e.target.value })}
-                disabled={loading}
               >
                 <option>Tithes / General</option>
                 <option>Missions</option>
@@ -159,29 +127,21 @@ const Offerings = () => {
 
             <button 
               type="submit" 
-              className="btn" 
-              style={{ width: '100%', marginTop: '1rem', fontSize: '1.2rem', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px' }}
-              disabled={loading}
+              className="payment-blue-btn" 
+              style={{ width: '100%', marginTop: '1.5rem', fontSize: '1.1rem' }}
             >
-              {loading ? (
-                <>
-                  <span className="spinner" style={{ width: '20px', height: '20px', border: '3px solid rgba(255,255,255,0.3)', borderTopColor: '#fff', borderRadius: '50%', display: 'inline-block', animation: 'spin 1s linear infinite' }}></span>
-                  Loading Checkout...
-                </>
-              ) : (
-                "Give Securely"
-              )}
+              Contribute ₹ {parseFloat(formData.amount || 0).toFixed(2)}
             </button>
+
+            <div className="payment-footer-logos">
+              <span style={{ fontSize: '0.75rem', color: '#94a3b8', fontWeight: '600' }}>Secured by Razorpay</span>
+              <div className="payment-logo-row">
+                <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: '#64748b' }}>UPI | VISA | Mastercard | RuPay</span>
+              </div>
+            </div>
           </form>
         </div>
       </div>
-      
-      {/* Dynamic inline keyframe style for loader spin */}
-      <style>{`
-        @keyframes spin {
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
     </div>
   );
 };

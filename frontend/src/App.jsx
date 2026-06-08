@@ -7,11 +7,12 @@ import Offerings from './pages/Offerings';
 import About from './pages/About';
 import MinistryDetails from './pages/MinistryDetails';
 import PaymentSuccess from './pages/PaymentSuccess';
+import Checkout from './pages/Checkout';
 
 function App() {
   return (
     <Router>
-      <div className="container">
+      <div className="app-wrapper">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -20,6 +21,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/ministries/:id" element={<MinistryDetails />} />
           <Route path="/payment-success" element={<PaymentSuccess />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </div>
     </Router>
