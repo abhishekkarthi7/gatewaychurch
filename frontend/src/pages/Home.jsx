@@ -6,10 +6,10 @@ const Home = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
   const slideshowImages = [
-    '/SnapsByRajsh-10.jpg', // SBR photograph
-    'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=800&auto=format&fit=crop', // Worship
-    'https://images.unsplash.com/photo-1510590337019-5ef8d3d32116?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Prayer
-    'https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'  // Fellowship
+    '/SnapsByRajsh-10.jpg',
+    'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1510590337019-5ef8d3d32116?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   ];
 
   const backgroundVideos = ['/WORSHIP.mp4', '/PRAYER.mp4'];
@@ -29,7 +29,6 @@ const Home = () => {
     <div className="animate-fade-in">
       {/* SBR Video Hero Section */}
       <section className="sbr-hero">
-        {/* Alternating Background Video */}
         <div className="sbr-video-container">
           <video 
             key={currentVideoIndex}
@@ -46,7 +45,7 @@ const Home = () => {
 
         {/* Hero Content Layout */}
         <div className="sbr-hero-content">
-          {/* Left Column: Text & Info */}
+          {/* Left Column: Decreased & Refined Text */}
           <div className="sbr-hero-left">
             <h1 className="sbr-hero-title animate-fade-in">
               GATEWAY CHURCH
@@ -55,7 +54,7 @@ const Home = () => {
               Worship • Fellowship • Community
             </h2>
             <p className="sbr-hero-description animate-fade-in delay-1">
-              Gateway Church Gummuluru is a place where faith comes alive and hearts connect. We are a family of believers devoted to worshiping God, cultivating authentic fellowship, and extending His grace to our community. No matter where you are on your spiritual journey, there is a place for you here. Join us as we grow, pray, and serve together.
+              Gateway Church Gummuluru is a place where faith comes alive and hearts connect. We are a family of believers devoted to worshiping God, cultivating authentic fellowship, and extending His grace to our community. No matter where you are on your spiritual journey, there is a place for you here.
             </p>
             <div className="sbr-hero-buttons animate-fade-in delay-2">
               <Link to="/offerings" className="sbr-btn-gold">Online Giving</Link>
@@ -63,7 +62,7 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Right Column: Slideshow Card */}
+          {/* Right Column: Square & Increased Size Slideshow Card */}
           <div className="sbr-hero-right animate-fade-in delay-2">
             <div className="sbr-slideshow-card">
               <img 
@@ -77,40 +76,40 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Ministries */}
-      <section className="section">
+      {/* Ministries Section */}
+      <section className="section container">
         <div className="section-header">
-          <h2>Find Your Community</h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem' }}>There's a place for everyone to grow and serve.</p>
+          <h2>Find Your <span className="text-gradient">Community</span></h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.15rem' }}>There's a place for everyone to grow and serve.</p>
         </div>
         <div className="grid">
-          <Link to="/ministries/kids" className="image-card">
+          <Link to="/about" className="image-card">
             <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kids Ministry" className="bg-img" />
             <div className="image-card-content">
               <h3 className="image-card-title">Kids Ministry</h3>
               <p className="image-card-text">A safe, fun environment where children learn biblical truths through interactive lessons and worship.</p>
               <div className="image-card-arrow">
-                Learn More <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                Learn More &rarr;
               </div>
             </div>
           </Link>
-          <Link to="/ministries/youth" className="image-card">
+          <Link to="/about" className="image-card">
             <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gateway Youth" className="bg-img" />
             <div className="image-card-content">
               <h3 className="image-card-title">Gateway Youth</h3>
               <p className="image-card-text">Empowering teenagers to build a strong foundation of faith and discover their God-given identity.</p>
               <div className="image-card-arrow">
-                Learn More <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                Learn More &rarr;
               </div>
             </div>
           </Link>
-          <Link to="/ministries/missions" className="image-card">
+          <Link to="/about" className="image-card">
             <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Global Missions" className="bg-img" />
             <div className="image-card-content">
               <h3 className="image-card-title">Global Missions</h3>
               <p className="image-card-text">Taking the gospel beyond our walls by supporting global missionaries and local outreach programs.</p>
               <div className="image-card-arrow">
-                Learn More <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                Learn More &rarr;
               </div>
             </div>
           </Link>
@@ -138,20 +137,12 @@ const Home = () => {
             <div className="footer-column">
               <h4>Find Your Place</h4>
               <Link to="/events">Events</Link>
-              <Link to="/ministries/youth">Groups</Link>
               <Link to="/offerings">Give</Link>
             </div>
           </div>
         </div>
-        <div className="footer-contact-banner">
-          <div>
-            <h3 style={{ color: 'white', fontSize: '1.5rem', marginBottom: '0.5rem', fontWeight: '700' }}>Get in touch.</h3>
-            <p style={{ color: 'rgba(255, 255, 255, 0.7)' }}>We'd love to hear from you.</p>
-          </div>
-          <div className="footer-contact-buttons">
-            <a href="tel:+919966178555" className="btn-outline">Call Us: +91 9966178555</a>
-            <Link to="/about" className="btn-outline">Contact Us</Link>
-          </div>
+        <div className="footer-bottom">
+          &copy; 2026 GATE VILLAGE CHURCH. All Rights Reserved.
         </div>
       </footer>
     </div>
