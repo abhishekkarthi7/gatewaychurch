@@ -45,13 +45,13 @@ const Home = () => {
 
         {/* Hero Content Layout */}
         <div className="sbr-hero-content">
-          {/* Left Column: Decreased & Refined Text */}
+          {/* Left Column: "Meet the Brothers" Style Title & Sans Light Description */}
           <div className="sbr-hero-left">
             <h1 className="sbr-hero-title animate-fade-in">
-              GATEWAY CHURCH
+              Gateway <span className="title-gradient-accent">Church</span>
             </h1>
             <h2 className="sbr-hero-subtitle animate-fade-in delay-1">
-              Worship • Fellowship • Community
+              Worship <span className="sub-dot">&bull;</span> Fellowship <span className="sub-dot">&bull;</span> Community
             </h2>
             <p className="sbr-hero-description animate-fade-in delay-1">
               Gateway Church Gummuluru is a place where faith comes alive and hearts connect. We are a family of believers devoted to worshiping God, cultivating authentic fellowship, and extending His grace to our community. No matter where you are on your spiritual journey, there is a place for you here.
@@ -79,8 +79,10 @@ const Home = () => {
       {/* Ministries Section */}
       <section className="section container">
         <div className="section-header">
-          <h2>Find Your <span className="text-gradient">Community</span></h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.15rem' }}>There's a place for everyone to grow and serve.</p>
+          <h2>Find Your <span className="text-gradient-purple-cyan">Community</span></h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.15rem', fontFamily: 'Quicksand, sans-serif', fontWeight: 300 }}>
+            There's a place for everyone to grow, connect, and serve together.
+          </p>
         </div>
         <div className="grid">
           <Link to="/about" className="image-card">
@@ -104,7 +106,7 @@ const Home = () => {
             </div>
           </Link>
           <Link to="/about" className="image-card">
-            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Global Missions" className="bg-img" />
+            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Global Missions" className="bg-img">
             <div className="image-card-content">
               <h3 className="image-card-title">Global Missions</h3>
               <p className="image-card-text">Taking the gospel beyond our walls by supporting global missionaries and local outreach programs.</p>
@@ -120,8 +122,10 @@ const Home = () => {
       <footer className="footer-premium">
         <div className="footer-top">
           <div className="footer-logo">
-            <h2 style={{ color: 'white', marginBottom: '0.5rem', fontFamily: 'var(--heading-font)' }}>GATEWAY<br/>CHRISTIAN CHURCH</h2>
-            <p style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.95rem', marginTop: '1rem' }}>Gummuluru - Korukonda, AP</p>
+            <h2 style={{ fontFamily: 'var(--heading-font)', letterSpacing: '1px' }}>Gateway <span className="text-gradient-purple-cyan">Church</span></h2>
+            <p style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.95rem', marginTop: '1rem', fontFamily: 'Quicksand, sans-serif', fontWeight: 300 }}>
+              Gummuluru - Korukonda, AP
+            </p>
           </div>
           <div className="footer-links">
             <div className="footer-column">

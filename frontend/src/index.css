@@ -1,19 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Quicksand:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --primary-color: #a78bfa;
-  --primary-gradient: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
-  --gold-gradient: linear-gradient(135deg, #dfb76c 0%, #b89146 50%, #dfb76c 100%);
-  --color-gold: #d4af37;
-  --color-gold-hover: #f3c623;
-  --color-bg-dark: #090912;
-  --color-bg-card: rgba(19, 19, 38, 0.65);
-  --text-main: #f8fafc;
+  --primary-color: #818cf8;
+  --color-purple: #7c3aed;
+  --color-blue: #3b82f6;
+  --color-cyan: #06b6d4;
+  --color-cyan-glow: rgba(6, 182, 212, 0.35);
+  --color-purple-glow: rgba(124, 58, 237, 0.35);
+  
+  --gradient-meet-brothers: linear-gradient(135deg, #9333ea 0%, #6366f1 50%, #06b6d4 100%);
+  --gradient-gold: linear-gradient(135deg, #dfb76c 0%, #b89146 50%, #dfb76c 100%);
+  
+  --color-gold: #dfb76c;
+  --color-gold-hover: #f5d493;
+  --color-bg-dark: #030206;
+  --color-bg-secondary: #09080e;
+  --color-bg-card: rgba(12, 11, 20, 0.65);
+  
+  --text-main: #ffffff;
+  --text-light: #e2e8f0;
   --text-muted: #94a3b8;
+  
   --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
-  --heading-font: 'Cormorant Garamond', serif;
-  --body-font: 'Plus Jakarta Sans', sans-serif;
+  --glass-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+  
+  --heading-font: 'Cormorant Garamond', Georgia, serif;
+  --body-font: 'Quicksand', 'Plus Jakarta Sans', sans-serif;
   --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -31,14 +43,15 @@ html {
 body {
   font-family: var(--body-font);
   background-color: var(--color-bg-dark);
-  color: var(--text-main);
-  line-height: 1.7;
+  color: var(--text-light);
+  line-height: 1.75;
   overflow-x: hidden;
   position: relative;
   -webkit-font-smoothing: antialiased;
+  font-weight: 300; /* Sans Light */
 }
 
-/* Ambient Subtle Background Lights */
+/* Ambient Glowing Background Elements */
 body::before {
   content: "";
   position: fixed;
@@ -47,9 +60,9 @@ body::before {
   right: -40%;
   bottom: -40%;
   background: 
-    radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.12) 0%, transparent 45%),
-    radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.08) 0%, transparent 45%),
-    radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 55%);
+    radial-gradient(circle at 15% 20%, rgba(124, 58, 237, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(6, 182, 212, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(223, 183, 108, 0.08) 0%, transparent 55%);
   z-index: -1;
   filter: blur(80px);
   pointer-events: none;
@@ -72,10 +85,18 @@ h1, h2, h3, h4 {
   font-family: var(--heading-font);
   color: var(--text-main);
   line-height: 1.2;
+  font-weight: 500;
 }
 
 .text-gradient {
-  background: var(--gold-gradient);
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.text-gradient-purple-cyan {
+  background: var(--gradient-meet-brothers);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -95,14 +116,14 @@ h1, h2, h3, h4 {
   top: 0;
   left: 0;
   height: 3.5px;
-  background: linear-gradient(90deg, #06b6d4 0%, #7c3aed 50%, #d4af37 100%);
+  background: linear-gradient(90deg, var(--color-cyan) 0%, var(--color-purple) 50%, var(--color-gold) 100%);
   z-index: 2000;
   width: 0%;
   transition: width 0.1s ease;
 }
 
 /* =========================================
-   Grand Snaps by Rajesh Header (Taller, Majestic)
+   Grand Snaps by Rajesh Header
    ========================================= */
 .main-header {
   position: fixed;
@@ -110,8 +131,8 @@ h1, h2, h3, h4 {
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 34px 50px;
-  background: linear-gradient(180deg, rgba(9, 9, 18, 0.88) 0%, rgba(9, 9, 18, 0.3) 70%, rgba(9, 9, 18, 0) 100%);
+  padding: 32px 50px;
+  background: linear-gradient(180deg, rgba(3, 2, 6, 0.9) 0%, rgba(3, 2, 6, 0.3) 70%, rgba(3, 2, 6, 0) 100%);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.02);
@@ -123,11 +144,11 @@ h1, h2, h3, h4 {
 
 .main-header.scrolled {
   padding: 16px 50px;
-  background: rgba(9, 9, 18, 0.92);
+  background: rgba(3, 2, 6, 0.92);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(124, 58, 237, 0.05);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(124, 58, 237, 0.06);
 }
 
 .nav-container-centered {
@@ -140,12 +161,12 @@ h1, h2, h3, h4 {
   width: 100%;
 }
 
-/* Left Brand: Grand Logo + Church Name */
+/* Left Brand: Grand Logo + Church Name in Title Case */
 .double-logo-wrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 20px;
+  gap: 18px;
   text-decoration: none;
   transition: gap var(--transition-smooth);
 }
@@ -158,21 +179,21 @@ h1, h2, h3, h4 {
 }
 
 .logo-left-img {
-  height: 64px;
-  width: 64px;
+  height: 62px;
+  width: 62px;
   object-fit: cover;
   border-radius: 50%;
-  border: 2.5px solid var(--color-gold);
+  border: 2px solid var(--color-gold);
   background-color: #030206;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4), 0 6px 15px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 18px rgba(223, 183, 108, 0.4), 0 4px 12px rgba(0, 0, 0, 0.6);
   transition: all var(--transition-smooth);
 }
 
 .main-header.scrolled .logo-left-img {
   height: 46px;
   width: 46px;
-  border-width: 2px;
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.25);
+  border-width: 1.5px;
+  box-shadow: 0 0 10px rgba(223, 183, 108, 0.25);
 }
 
 .logo-right-text {
@@ -185,45 +206,50 @@ h1, h2, h3, h4 {
 
 .logo-brand-title {
   font-family: var(--heading-font);
-  font-size: 2.05rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-size: 2.1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
   color: #ffffff;
-  text-transform: uppercase;
   white-space: nowrap;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   transition: font-size var(--transition-smooth);
 }
 
+.logo-brand-title span {
+  color: var(--color-gold);
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .main-header.scrolled .logo-brand-title {
-  font-size: 1.55rem;
-  letter-spacing: 0.11em;
+  font-size: 1.6rem;
 }
 
 .logo-brand-sub {
   font-family: var(--body-font);
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.26em;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
   color: var(--color-gold);
   text-transform: uppercase;
   white-space: nowrap;
-  margin-top: 4px;
-  opacity: 0.95;
+  margin-top: 3px;
+  opacity: 0.9;
   transition: all var(--transition-smooth);
 }
 
 .main-header.scrolled .logo-brand-sub {
-  font-size: 0.52rem;
-  margin-top: 2px;
+  font-size: 0.54rem;
+  margin-top: 1px;
 }
 
-/* Right Navigation Links (Clean, No Social Buttons) */
+/* Right Navigation Links */
 .nav-links-centered {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 42px;
+  gap: 40px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -231,9 +257,9 @@ h1, h2, h3, h4 {
 
 .nav-links-centered .nav-link {
   font-family: var(--body-font);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   font-weight: 600;
   color: #cbd5e1;
   position: relative;
@@ -248,8 +274,8 @@ h1, h2, h3, h4 {
   bottom: 0;
   left: 50%;
   width: 0;
-  height: 2.5px;
-  background: linear-gradient(90deg, #06b6d4, #7c3aed, #d4af37);
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-cyan), var(--color-purple), var(--color-gold));
   transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), left 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   border-radius: 2px;
 }
@@ -257,7 +283,7 @@ h1, h2, h3, h4 {
 .nav-links-centered .nav-link:hover,
 .nav-links-centered .nav-link.active {
   color: #ffffff;
-  text-shadow: 0 0 14px rgba(255, 255, 255, 0.3);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
 }
 
 .nav-links-centered .nav-link.active {
@@ -311,7 +337,7 @@ h1, h2, h3, h4 {
 }
 
 /* =========================================
-   Hero Section with Square Slideshow & Proportionate Text
+   Hero Section with "Meet the Brothers" Style Title & Sans Light Description
    ========================================= */
 .sbr-hero {
   position: relative;
@@ -345,11 +371,11 @@ h1, h2, h3, h4 {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(9, 9, 18, 0.95) 0%,
-    rgba(9, 9, 18, 0.65) 50%,
-    rgba(9, 9, 18, 0.96) 100%
+    rgba(3, 2, 6, 0.95) 0%,
+    rgba(3, 2, 6, 0.6) 50%,
+    rgba(3, 2, 6, 0.96) 100%
   );
-  background-color: rgba(9, 9, 18, 0.4);
+  background-color: rgba(3, 2, 6, 0.4);
 }
 
 .sbr-hero-content {
@@ -363,7 +389,7 @@ h1, h2, h3, h4 {
   align-items: center;
 }
 
-/* Left Column: Refined & Decreased Text Size */
+/* Left Column: "Meet the Brothers" Typography & Sans Light */
 .sbr-hero-left {
   text-align: left;
   color: #ffffff;
@@ -371,31 +397,53 @@ h1, h2, h3, h4 {
 
 .sbr-hero-title {
   font-family: var(--heading-font);
-  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
-  font-weight: 700;
-  letter-spacing: 4px;
+  font-size: clamp(2.8rem, 5.5vw, 4.4rem);
+  font-weight: 500;
+  line-height: 1.15;
   color: #ffffff;
-  margin-bottom: 0.4rem;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  line-height: 1.18;
+  margin-bottom: 0.6rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  letter-spacing: -0.01em;
+}
+
+.sbr-hero-title span.title-gradient-accent {
+  background: var(--gradient-meet-brothers);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  font-weight: 500;
+  filter: drop-shadow(0 0 25px rgba(6, 182, 212, 0.35));
 }
 
 .sbr-hero-subtitle {
   font-family: var(--body-font);
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-size: 1.18rem;
+  font-weight: 500;
   letter-spacing: 2px;
   color: var(--color-gold);
-  margin-bottom: 1.5rem;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  margin-bottom: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
+.sbr-hero-subtitle .sub-dot {
+  color: rgba(223, 183, 108, 0.6);
+  font-size: 0.9rem;
+}
+
+/* Sans Light Description matching Image 3 */
 .sbr-hero-description {
-  color: #94a3b8;
-  font-size: 1.02rem;
-  line-height: 1.75;
-  margin-bottom: 2.2rem;
-  max-width: 580px;
+  font-family: 'Quicksand', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 300; /* SANS LIGHT */
+  color: #e2e8f0;
+  font-size: 1.08rem;
+  line-height: 1.85;
+  letter-spacing: 0.015em;
+  margin-bottom: 2.4rem;
+  max-width: 590px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .sbr-hero-buttons {
@@ -406,41 +454,41 @@ h1, h2, h3, h4 {
 
 .sbr-btn-gold {
   display: inline-block;
-  background-color: var(--color-gold);
-  color: #090912;
-  padding: 0.9rem 2.2rem;
+  background: var(--gradient-gold);
+  color: #030206;
+  padding: 0.95rem 2.2rem;
   border-radius: 6px;
   font-family: var(--body-font);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  border: 1px solid var(--color-gold);
+  border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 4px 18px rgba(223, 183, 108, 0.35);
   text-align: center;
 }
 
 .sbr-btn-gold:hover {
-  background-color: var(--color-gold-hover);
-  border-color: var(--color-gold-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(223, 183, 108, 0.5);
+  background: var(--color-gold-hover);
 }
 
 .sbr-btn-outline {
   display: inline-block;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.03);
   color: #ffffff;
-  padding: 0.9rem 2.2rem;
+  padding: 0.95rem 2.2rem;
   border-radius: 6px;
   font-family: var(--body-font);
-  font-weight: 700;
-  font-size: 0.9rem;
+  font-weight: 600;
+  font-size: 0.88rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: center;
@@ -448,10 +496,10 @@ h1, h2, h3, h4 {
 
 .sbr-btn-outline:hover {
   background-color: #ffffff;
-  color: #090912;
+  color: #030206;
   border-color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
 }
 
 /* Right Column: Square & Increased Size Slideshow */
@@ -470,9 +518,9 @@ h1, h2, h3, h4 {
   height: 480px;
   border-radius: 24px;
   overflow: hidden;
-  border: 1.5px solid rgba(212, 175, 55, 0.25);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.15);
-  background-color: #131326;
+  border: 1.5px solid rgba(223, 183, 108, 0.3);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(223, 183, 108, 0.15);
+  background-color: #09080e;
 }
 
 .sbr-slideshow-img {
@@ -486,17 +534,17 @@ h1, h2, h3, h4 {
   position: absolute;
   bottom: 24px;
   left: 24px;
-  background: rgba(9, 9, 18, 0.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(3, 2, 6, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   color: var(--color-gold);
   padding: 0.6rem 1.4rem;
   border-radius: 6px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   letter-spacing: 3px;
   font-weight: 700;
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(223, 183, 108, 0.35);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
 }
 
 /* =========================================
@@ -513,8 +561,8 @@ h1, h2, h3, h4 {
 }
 
 .section-header h2 {
-  font-size: 3rem;
-  font-weight: 600;
+  font-size: 3.2rem;
+  font-weight: 500;
   letter-spacing: 0.02em;
   margin-bottom: 0.8rem;
 }
@@ -538,8 +586,8 @@ h1, h2, h3, h4 {
 
 .card:hover {
   transform: translateY(-8px);
-  border-color: rgba(212, 175, 55, 0.4);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.15);
+  border-color: rgba(223, 183, 108, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(6, 182, 212, 0.15);
 }
 
 .image-card {
@@ -553,9 +601,9 @@ h1, h2, h3, h4 {
   padding: 2.5rem 2rem;
   color: white;
   text-decoration: none;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
   transition: all 0.4s ease;
-  background-color: #131326;
+  background-color: #09080e;
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -577,7 +625,7 @@ h1, h2, h3, h4 {
   left: 0;
   width: 100%;
   height: 85%;
-  background: linear-gradient(to top, rgba(9,9,18,0.98) 0%, rgba(9,9,18,0.5) 60%, rgba(9,9,18,0) 100%);
+  background: linear-gradient(to top, rgba(3,2,6,0.98) 0%, rgba(3,2,6,0.5) 60%, rgba(3,2,6,0) 100%);
   z-index: 1;
 }
 
@@ -590,7 +638,7 @@ h1, h2, h3, h4 {
 
 .image-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(212, 175, 55, 0.4);
+  border-color: rgba(223, 183, 108, 0.4);
 }
 
 .image-card:hover img.bg-img {
@@ -603,14 +651,16 @@ h1, h2, h3, h4 {
 
 .image-card-title {
   font-family: var(--heading-font);
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 2.2rem;
+  font-weight: 500;
   margin-bottom: 0.6rem;
   color: white;
 }
 
 .image-card-text {
-  font-size: 0.98rem;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 1.2rem;
   opacity: 0;
@@ -625,7 +675,7 @@ h1, h2, h3, h4 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.9rem;
   color: var(--color-gold);
   text-transform: uppercase;
@@ -648,7 +698,7 @@ h1, h2, h3, h4 {
   background: #ffffff;
   border-radius: 16px;
   padding: 2.8rem;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
   max-width: 580px;
   margin: 0 auto;
   color: #1e293b;
@@ -724,7 +774,7 @@ h1, h2, h3, h4 {
    Footer
    ========================================= */
 .footer-premium {
-  background-color: #06060c;
+  background-color: #030206;
   color: white;
   padding: 5rem 2rem 3rem;
   margin-top: 6rem;
@@ -741,8 +791,8 @@ h1, h2, h3, h4 {
 }
 
 .footer-logo h2 {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 2.2rem;
+  font-weight: 500;
   color: white;
   line-height: 1.2;
 }
@@ -755,7 +805,7 @@ h1, h2, h3, h4 {
 
 .footer-column h4 {
   font-family: var(--body-font);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.05rem;
   color: white;
   margin-bottom: 1.5rem;
@@ -766,6 +816,8 @@ h1, h2, h3, h4 {
   color: rgba(255, 255, 255, 0.6);
   margin-bottom: 1rem;
   font-size: 0.95rem;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
 }
 
 .footer-column a:hover {
@@ -778,6 +830,7 @@ h1, h2, h3, h4 {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   color: rgba(255, 255, 255, 0.5);
   font-size: 0.9rem;
+  font-family: 'Quicksand', sans-serif;
 }
 
 /* =========================================
@@ -793,16 +846,16 @@ h1, h2, h3, h4 {
   }
 
   .logo-left-img {
-    height: 50px;
-    width: 50px;
+    height: 48px;
+    width: 48px;
   }
 
   .logo-brand-title {
-    font-size: 1.55rem;
+    font-size: 1.65rem;
   }
 
   .main-header.scrolled .logo-brand-title {
-    font-size: 1.35rem;
+    font-size: 1.4rem;
   }
 
   .menu-toggle {
@@ -820,7 +873,7 @@ h1, h2, h3, h4 {
     width: 82%;
     max-width: 320px;
     height: 100vh;
-    background: rgba(9, 9, 18, 0.98);
+    background: rgba(3, 2, 6, 0.98);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
     border-left: 1px solid rgba(255, 255, 255, 0.08);
@@ -858,8 +911,8 @@ h1, h2, h3, h4 {
 
   .mobile-menu-title {
     font-family: var(--heading-font);
-    font-size: 1.35rem;
-    font-weight: 700;
+    font-size: 1.45rem;
+    font-weight: 500;
     color: #ffffff;
   }
 
@@ -883,6 +936,10 @@ h1, h2, h3, h4 {
 
   .sbr-hero-left {
     text-align: center;
+  }
+
+  .sbr-hero-subtitle {
+    justify-content: center;
   }
 
   .sbr-hero-description {
@@ -915,12 +972,15 @@ h1, h2, h3, h4 {
   }
 
   .logo-brand-title {
-    font-size: 1.25rem;
-    letter-spacing: 0.08em;
+    font-size: 1.35rem;
   }
 
   .logo-brand-sub {
-    font-size: 0.5rem;
+    font-size: 0.52rem;
+  }
+
+  .sbr-hero-title {
+    font-size: 2.6rem;
   }
 
   .sbr-slideshow-card {

@@ -51,7 +51,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Top Scroll Progress Indicator Bar */}
       <div 
         className="scroll-progress-bar" 
         style={{ width: `${scrollProgress}%` }}
@@ -60,7 +59,6 @@ const Navbar = () => {
 
       <header className={`main-header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="nav-container-centered">
-          {/* Left Brand: Grand Logo + Church Name */}
           <NavLink to="/" className="double-logo-wrapper" onClick={closeMenu}>
             <div className="logo-img-box">
               <img 
@@ -70,12 +68,11 @@ const Navbar = () => {
               />
             </div>
             <div className="logo-right-text">
-              <span className="logo-brand-title">GATE VILLAGE CHURCH</span>
+              <span className="logo-brand-title">Gate Village <span>Church</span></span>
               <span className="logo-brand-sub">THE MESSAGE FOR THE WORLD</span>
             </div>
           </NavLink>
 
-          {/* Mobile Toggle Button */}
           <button 
             className={`menu-toggle ${isOpen ? 'open' : ''}`} 
             onClick={toggleMenu}
@@ -87,12 +84,11 @@ const Navbar = () => {
             <span></span>
           </button>
 
-          {/* Right Navigation Links (Clean, No Social Buttons) */}
           <ul className={`nav-links-centered ${isOpen ? 'active' : ''}`}>
             <li className="mobile-only mobile-menu-header">
               <img src="/LOGO.jpeg" alt="Gate Village Logo" className="mobile-menu-logo" />
               <div className="mobile-menu-text">
-                <span className="mobile-menu-title">GATE VILLAGE</span>
+                <span className="mobile-menu-title">Gate Village</span>
                 <span className="mobile-menu-sub">CHURCH</span>
               </div>
             </li>
