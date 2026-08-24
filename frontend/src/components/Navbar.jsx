@@ -63,12 +63,12 @@ const Navbar = () => {
             <div className="logo-img-box">
               <img 
                 src="/LOGO.jpeg" 
-                alt="Gate Village Church Logo" 
+                alt="Gateway Church Logo" 
                 className="logo-left-img" 
               />
             </div>
             <div className="logo-right-text">
-              <span className="logo-brand-title">Gate Village <span>Church</span></span>
+              <span className="logo-brand-title">Gateway <span className="title-gradient-accent">Church</span></span>
               <span className="logo-brand-sub">THE MESSAGE FOR THE WORLD</span>
             </div>
           </NavLink>
@@ -86,10 +86,10 @@ const Navbar = () => {
 
           <ul className={`nav-links-centered ${isOpen ? 'active' : ''}`}>
             <li className="mobile-only mobile-menu-header">
-              <img src="/LOGO.jpeg" alt="Gate Village Logo" className="mobile-menu-logo" />
+              <img src="/LOGO.jpeg" alt="Gateway Church Logo" className="mobile-menu-logo" />
               <div className="mobile-menu-text">
-                <span className="mobile-menu-title">Gate Village</span>
-                <span className="mobile-menu-sub">CHURCH</span>
+                <span className="mobile-menu-title">Gateway <span style={{ color: 'var(--color-gold)' }}>Church</span></span>
+                <span className="mobile-menu-sub">THE MESSAGE FOR THE WORLD</span>
               </div>
             </li>
 

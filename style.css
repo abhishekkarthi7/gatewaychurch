@@ -2,13 +2,14 @@
 
 :root {
   --primary-color: #818cf8;
-  --color-purple: #7c3aed;
-  --color-blue: #3b82f6;
+  --color-purple: #9333ea;
+  --color-indigo: #6366f1;
   --color-cyan: #06b6d4;
-  --color-cyan-glow: rgba(6, 182, 212, 0.35);
-  --color-purple-glow: rgba(124, 58, 237, 0.35);
+  --color-cyan-glow: rgba(6, 182, 212, 0.4);
+  --color-purple-glow: rgba(147, 51, 234, 0.4);
   
-  --gradient-meet-brothers: linear-gradient(135deg, #9333ea 0%, #6366f1 50%, #06b6d4 100%);
+  /* Meet the Brothers Inspired Signature Gradient */
+  --gradient-meet-brothers: linear-gradient(135deg, #a855f7 0%, #6366f1 45%, #06b6d4 100%);
   --gradient-gold: linear-gradient(135deg, #dfb76c 0%, #b89146 50%, #dfb76c 100%);
   
   --color-gold: #dfb76c;
@@ -60,7 +61,7 @@ body::before {
   right: -40%;
   bottom: -40%;
   background: 
-    radial-gradient(circle at 15% 20%, rgba(124, 58, 237, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 15% 20%, rgba(147, 51, 234, 0.15) 0%, transparent 45%),
     radial-gradient(circle at 85% 75%, rgba(6, 182, 212, 0.12) 0%, transparent 45%),
     radial-gradient(circle at 50% 50%, rgba(223, 183, 108, 0.08) 0%, transparent 55%);
   z-index: -1;
@@ -84,7 +85,7 @@ img, video {
 h1, h2, h3, h4 {
   font-family: var(--heading-font);
   color: var(--text-main);
-  line-height: 1.2;
+  line-height: 1.15;
   font-weight: 500;
 }
 
@@ -95,11 +96,14 @@ h1, h2, h3, h4 {
   display: inline-block;
 }
 
-.text-gradient-purple-cyan {
+.text-gradient-purple-cyan,
+.title-gradient-accent {
   background: var(--gradient-meet-brothers);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
+  font-weight: 500;
+  filter: drop-shadow(0 0 15px rgba(6, 182, 212, 0.35));
 }
 
 .container {
@@ -123,7 +127,7 @@ h1, h2, h3, h4 {
 }
 
 /* =========================================
-   Grand Snaps by Rajesh Header
+   Grand Snaps by Rajesh Header (Taller, Majestic)
    ========================================= */
 .main-header {
   position: fixed;
@@ -131,8 +135,8 @@ h1, h2, h3, h4 {
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 32px 50px;
-  background: linear-gradient(180deg, rgba(3, 2, 6, 0.9) 0%, rgba(3, 2, 6, 0.3) 70%, rgba(3, 2, 6, 0) 100%);
+  padding: 30px 50px;
+  background: linear-gradient(180deg, rgba(3, 2, 6, 0.92) 0%, rgba(3, 2, 6, 0.3) 70%, rgba(3, 2, 6, 0) 100%);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.02);
@@ -143,12 +147,12 @@ h1, h2, h3, h4 {
 }
 
 .main-header.scrolled {
-  padding: 16px 50px;
-  background: rgba(3, 2, 6, 0.92);
+  padding: 15px 50px;
+  background: rgba(3, 2, 6, 0.94);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(124, 58, 237, 0.06);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(147, 51, 234, 0.06);
 }
 
 .nav-container-centered {
@@ -161,12 +165,12 @@ h1, h2, h3, h4 {
   width: 100%;
 }
 
-/* Left Brand: Grand Logo + Church Name in Title Case */
+/* Left Brand: Compact, No Excessive Gaps, 'Meet the Brothers' Font */
 .double-logo-wrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 18px;
+  gap: 12px; /* Tight, no awkward wide gap */
   text-decoration: none;
   transition: gap var(--transition-smooth);
 }
@@ -176,11 +180,12 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .logo-left-img {
-  height: 62px;
-  width: 62px;
+  height: 58px;
+  width: 58px;
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid var(--color-gold);
@@ -190,8 +195,8 @@ h1, h2, h3, h4 {
 }
 
 .main-header.scrolled .logo-left-img {
-  height: 46px;
-  width: 46px;
+  height: 44px;
+  width: 44px;
   border-width: 1.5px;
   box-shadow: 0 0 10px rgba(223, 183, 108, 0.25);
 }
@@ -200,48 +205,50 @@ h1, h2, h3, h4 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  line-height: 1.15;
+  line-height: 1; /* Seamless tight alignment without vertical gap */
   text-align: left;
 }
 
 .logo-brand-title {
-  font-family: var(--heading-font);
-  font-size: 2.1rem;
+  font-family: var(--heading-font); /* 'Meet the Brothers' font */
+  font-size: 2.15rem;
   font-weight: 500;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.01em;
   color: #ffffff;
   white-space: nowrap;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  line-height: 1.05;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
   transition: font-size var(--transition-smooth);
 }
 
-.logo-brand-title span {
-  color: var(--color-gold);
-  background: var(--gradient-gold);
+.logo-brand-title .title-gradient-accent {
+  background: var(--gradient-meet-brothers);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 12px rgba(6, 182, 212, 0.35));
 }
 
 .main-header.scrolled .logo-brand-title {
-  font-size: 1.6rem;
+  font-size: 1.65rem;
 }
 
 .logo-brand-sub {
   font-family: var(--body-font);
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.24em;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
   color: var(--color-gold);
   text-transform: uppercase;
   white-space: nowrap;
   margin-top: 3px;
   opacity: 0.9;
+  line-height: 1;
   transition: all var(--transition-smooth);
 }
 
 .main-header.scrolled .logo-brand-sub {
-  font-size: 0.54rem;
-  margin-top: 1px;
+  font-size: 0.52rem;
+  margin-top: 2px;
 }
 
 /* Right Navigation Links */
@@ -395,7 +402,6 @@ h1, h2, h3, h4 {
   color: #ffffff;
 }
 
-/* Title Case / Mixed Case Heading matching "Meet the Brothers" in Image 2 */
 .sbr-hero-title {
   font-family: var(--heading-font);
   font-size: clamp(2.8rem, 5.5vw, 4.4rem);
@@ -405,16 +411,6 @@ h1, h2, h3, h4 {
   margin-bottom: 0.6rem;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
   letter-spacing: -0.01em;
-}
-
-/* Violet-Cyan-Blue Gradient for the second word */
-.sbr-hero-title span.title-gradient-accent {
-  background: var(--gradient-meet-brothers);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  font-weight: 500;
-  filter: drop-shadow(0 0 25px rgba(6, 182, 212, 0.35));
 }
 
 .sbr-hero-subtitle {
@@ -840,16 +836,16 @@ h1, h2, h3, h4 {
    ========================================= */
 @media screen and (max-width: 992px) {
   .main-header {
-    padding: 20px 24px;
+    padding: 18px 24px;
   }
 
   .main-header.scrolled {
-    padding: 14px 20px;
+    padding: 12px 20px;
   }
 
   .logo-left-img {
-    height: 48px;
-    width: 48px;
+    height: 46px;
+    width: 46px;
   }
 
   .logo-brand-title {
@@ -896,7 +892,7 @@ h1, h2, h3, h4 {
   .mobile-menu-header {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
     padding-bottom: 1.5rem;
     margin-bottom: 0.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -904,8 +900,8 @@ h1, h2, h3, h4 {
   }
 
   .mobile-menu-logo {
-    width: 48px;
-    height: 48px;
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
     border: 2px solid var(--color-gold);
     object-fit: cover;
@@ -961,16 +957,16 @@ h1, h2, h3, h4 {
 
 @media screen and (max-width: 480px) {
   .main-header {
-    padding: 16px 16px;
+    padding: 14px 16px;
   }
 
   .main-header.scrolled {
-    padding: 12px 16px;
+    padding: 10px 16px;
   }
 
   .logo-left-img {
-    height: 44px;
-    width: 44px;
+    height: 42px;
+    width: 42px;
   }
 
   .logo-brand-title {
@@ -978,11 +974,11 @@ h1, h2, h3, h4 {
   }
 
   .logo-brand-sub {
-    font-size: 0.52rem;
+    font-size: 0.5rem;
   }
 
   .sbr-hero-title {
-    font-size: 2.6rem;
+    font-size: 2.5rem;
   }
 
   .sbr-slideshow-card {
